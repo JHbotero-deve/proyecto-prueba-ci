@@ -1,0 +1,32 @@
+# Guardar este archivo como: .github/workflows/verificar.yml
+name: Verificación Completa de Estructura
+
+on:
+  push:
+    branches:
+      - main # Se ejecuta automáticamente al hacer push a main
+
+jobs:
+  validar-archivos:
+    runs-on: ubuntu-latest # Entorno virtual Linux
+
+    steps:
+      # Paso 1: Clonar el código del repositorio en el contenedor virtual
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      # Paso 2: Verificar index.html (Ejercicio 3)
+      - name: Verificar index.html
+        run: test -f index.html
+
+      # Paso 3: Verificar css/style.css (Ejercicio 4)
+      - name: Verificar css/style.css
+        run: test -f css/style.css
+
+      # Paso 4: Verificar js/script.js (Ejercicio 4)
+      - name: Verificar js/script.js
+        run: test -f js/script.js
+
+      # Paso 5: Mensaje final en la consola de GitHub
+      - name: Reportar Éxito
+        run: echo "¡Todos los archivos requeridos existen en el proyecto!"
