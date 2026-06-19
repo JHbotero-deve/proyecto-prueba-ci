@@ -15,18 +15,14 @@ jobs:
       - name: Descargar repositorio
         uses: actions/checkout@v4
 
-      # Paso 2: Verificar index.html (Ejercicio 3)
-      - name: Verificar index.html
+     # Paso 2: Verificar existencia del archivo principal (index.html)
+      - name: Verificar archivo index.html
         run: test -f index.html
 
-      # Paso 3: Verificar css/style.css (Ejercicio 4)
-      - name: Verificar css/style.css
+      # Paso 3: Verificar archivo css/style.css
+      - name: Verificar archivo css/style.css
         run: test -f css/style.css
 
-      # Paso 4: Verificar js/script.js (Ejercicio 4)
-      - name: Verificar js/script.js
+      # Paso 4: Verificar archivo js/script.js
+      - name: Verificar archivo js/script.js
         run: test -f js/script.js
-
-      # Paso 5: Mensaje final en la consola de GitHub
-      - name: Reportar Éxito
-        run: echo "¡Todos los archivos requeridos existen en el proyecto!"
